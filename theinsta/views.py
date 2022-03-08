@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy,reverse
 from django.views.generic import ListView,DetailView, CreateView, UpdateView, DeleteView
 from . models import Category, Post
+from .forms import EditForm, PostForm
+from django.http import HttpResponseRedirect
 
 def LikeView(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
