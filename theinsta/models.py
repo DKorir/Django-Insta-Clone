@@ -21,7 +21,6 @@ class Profile(models.Model):
     twitter_url = models.CharField(max_length=255,null=True, blank=True)
     instagram_url = models.CharField(max_length=255,null=True, blank=True)
     pinterest_url = models.CharField(max_length=255,null=True, blank=True)
-
     def __str__(self):
         return str(self.user)
     def get_absolute_url(self):
@@ -46,6 +45,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         # return reverse("article-detail",args=(str(self.id)))
         return reverse('home')
+
 class Comment(models.Model):
      post = models.ForeignKey(Post,related_name="comments" ,on_delete=models.CASCADE)
      name = models.CharField(max_length=255)
@@ -54,5 +54,3 @@ class Comment(models.Model):
 
      def __str__(self):
          return '%s - %s' % (self.post.title, self.name)
-
-
