@@ -19,6 +19,8 @@ class Profile(models.Model):
     website_url = models.CharField(max_length=255,null=True, blank=True)
     facebook_url = models.CharField(max_length=255,null=True, blank=True)
     twitter_url = models.CharField(max_length=255,null=True, blank=True)
+    instagram_url = models.CharField(max_length=255,null=True, blank=True)
+    pinterest_url = models.CharField(max_length=255,null=True, blank=True)
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
