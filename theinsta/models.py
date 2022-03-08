@@ -17,6 +17,8 @@ class Profile(models.Model):
     bio = models.TextField()
     profile_image = models.ImageField(null=True, blank=True, upload_to="images/profile/")
     website_url = models.CharField(max_length=255,null=True, blank=True)
+    facebook_url = models.CharField(max_length=255,null=True, blank=True)
+    twitter_url = models.CharField(max_length=255,null=True, blank=True)
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
