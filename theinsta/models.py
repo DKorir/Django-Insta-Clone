@@ -13,5 +13,12 @@ class Post(models.Model):
     post_date = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=255,default='coding')
     likes = models.ManyToManyField(User, related_name='blog_posts')
+    def total_likes(self):
+        return self.likes.count()
+
     def __str__(self):
         return self.title+ " | " + str(self.author)
+    
+    def get_absolute_url(self):
+        # return reverse("article-detail",args=(str(self.id)))
+        return reverse('home')
