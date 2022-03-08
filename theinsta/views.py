@@ -35,3 +35,14 @@ class ArticleDetailView(DetailView):
         context["total_likes"] = total_likes
         context["liked"] = liked
         return context
+
+class AddPostView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'add_post.html'
+    # fields = '__all__'
+    # def get_context_data(self, *args, **kwargs):
+    #     cat_menu = Category.objects.all()
+    #     context = super(AddPostView,self).get_context_data(*args, **kwargs)
+    #     context["cat_menu"] = cat_menu
+    #     return context
