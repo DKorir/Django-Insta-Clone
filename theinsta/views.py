@@ -12,3 +12,7 @@ class HomeView(ListView):
         context = super(HomeView,self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
         return context
+
+def CategoryListView(request):
+    cat_menu_list = Category.objects.all()
+    return render(request,'category_list.html',{'cat_menu_list': cat_menu_list})
