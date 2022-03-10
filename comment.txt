@@ -1,0 +1,21 @@
+class AddCommentView(CreateView):
+    model = Comment
+    ordering = ['-date_added']
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+    success_url = reverse_lazy('home')
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+
+path('article/<int:pk>/comment/',AddCommentView.as_view(), name='add_comment'),
+        
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name','body')
+        widgets={
+            'name':forms.TextInput(attrs={'class': 'form-control'}),
+            'body':forms.Textarea(attrs={'class': 'form-control'}),
+        }
