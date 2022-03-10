@@ -37,29 +37,20 @@
 
         {% endif %}
    {% else %}
+   <br><hr>
+
         <small>Login to like</small>
     {% endif %}
-            - {{ total_likes }} likes 
+    - {{ total_likes }} likes 
+            
    
     </form>
     <br>
     <br>
     <br>
     <br>
-    <h2>Comments....</h2>
-    {% if not not post.comments.all %}
-        No comments yet!!
-        <a href="">Add Comment</a>
-        
-    {% else %}
-        {% for comment in post.comments.all %}
-            <strong>
-            {{ comment.name }}-
-            {{ comment.date_added }}
-            </strong>
-            {{ comment.body }}
-        {% endfor %}
-    {% endif %}
+    <hr>
+   
 
 
 
@@ -104,6 +95,35 @@
           </div>
         </div>
       </div>
+      <br>
+      <br>
+
+
+      <h2>Comments....</h2>
+      {% if not post.comments.all %}
+          No comments yet!!
+          <br>
+        <a href=" {% url 'add_comment' post.pk %}  ">Add Comment</a>
+          <br>
+          
+      {% else %}
+        
+        <br>
+          {% for comment in post.comments.all %}
+              <strong>
+              {{ comment.name }}-
+              {{ comment.date_added }}
+              <br>
+              </strong>
+              {{ comment.body }}
+              <br><hr>
+              
+          {% endfor %}
+          <a href=" {% url 'add_comment' post.pk %}  ">Add Comment</a>
+      {% endif %}
+      
+      <br>
+      <br>
 
 
 

@@ -1,3 +1,5 @@
+from dataclasses import fields
+from re import template
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from django.views.generic import DetailView,CreateView
@@ -6,7 +8,7 @@ from django.contrib.auth.views import  PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
 from theinsta.models import Profile
-
+# Create your views here.
 class CreateProfilePageView(CreateView):
     model = Profile
     form_class = ProfilePageForm
@@ -15,13 +17,15 @@ class CreateProfilePageView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+        
+
 
 class EditProfilePageView(generic.UpdateView):
     model = Profile
     template_name = 'registration/edit_profile_page.html'
     fields = ['bio','profile_image','website_url','facebook_url','twitter_url','instagram_url','pinterest_url']
     success_url = reverse_lazy('home')
-    
+
 class ShowProfilePageView(DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'
@@ -40,7 +44,8 @@ class PasswordsChangeView(PasswordChangeView):
     # success_url = reverse_lazy('home')
 
 def password_success(request):
-    return render(request,'registration/password_success.html', {})     
+    return render(request,'registration/password_success.html', {})
+
 
 class UserRegisterView(generic.CreateView):
     form_class = SignUpForm
@@ -54,3 +59,4 @@ class UserEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
