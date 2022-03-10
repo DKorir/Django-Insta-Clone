@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Create A New Profile Page
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Create Profile Page....</h1>
+    <br>
+    <br>
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+        <button class="btn btn-secondary">Create Profile Page</button>
+    
+    </div>
+    <script>
+       var name =  "{{ user.id }}";
+       document.getElementById("elder").value = name;
+    </script>
+{% else %}
+    <h2>You have no permission to access This Page!!! <br> Head to Login/Register</h2>
+    <button class="btn btn-secondary"> <a href=" {% url 'login' %} ">Login</a></button>
+    <button class="btn btn-warning"> <a href=" {% url 'register' %} ">Register</a></button>
+{% endif %}
+{% endblock %}
