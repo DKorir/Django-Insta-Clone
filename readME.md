@@ -1,10 +1,10 @@
-# Django Gallery 
+# Clone Instagram 
 ## Author  
   
 >[Dominic Korir] 
   
 # Description  
-This is a Django application for personal gallery that allows a user to upload images for other to see with specific locations and description
+Instagram clone built using Django, Bootstrap. The features are CRUD capabilties on posts, explore page, likes, comments, direct messaging, profiles, profiles pictures, bios, search bar
   
 ##  Live Link  
  Click [View Site](https://gallari.herokuapp.com/)  to visit the site
