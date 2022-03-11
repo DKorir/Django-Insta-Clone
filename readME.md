@@ -7,7 +7,7 @@
 Instagram clone built using Django, Bootstrap. The features are CRUD capabilties on posts, explore page, likes, comments, direct messaging, profiles, profiles pictures, bios, search bar
   
 ##  Live Link  
- Click [View Site](https://gallari.herokuapp.com/)  to visit the site
+ Click [View Site](https://dominsta2020.herokuapp.com/)  to visit the site
 
  
 ## User Story  
@@ -24,7 +24,7 @@ Instagram clone built using Django, Bootstrap. The features are CRUD capabilties
 To get the project .......  
   
 ##### Cloning the repository:  
- ```https://github.com/DKorir/Django-Gallery
+ ```https://dominsta2020.herokuapp.com/
 ```
 ##### Navigate into the folder and install requirements  
  ```bash 
